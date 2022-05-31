@@ -61,4 +61,10 @@ public class GreetingController {
         return greetingService.getAllGreetingMessages();
     }
 
+    @PutMapping("/editmessage/{id}")
+    public User editGreetMesage(@PathVariable long id, @RequestBody UserDto userDto) {
+        return greetingService.updateGreetMessage(id, userDto);
+
+    }
+
 }
