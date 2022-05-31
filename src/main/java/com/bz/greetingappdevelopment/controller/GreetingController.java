@@ -1,6 +1,7 @@
 package com.bz.greetingappdevelopment.controller;
 
 import com.bz.greetingappdevelopment.Services.IGreetingService;
+import com.bz.greetingappdevelopment.dto.User;
 import com.bz.greetingappdevelopment.dto.UserDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -47,6 +48,11 @@ public class GreetingController {
     @PostMapping("/greeting")
     public String greetingMessage(@RequestBody UserDto userDto) {
         return greetingService.greetingMessageByName(userDto);
+    }
+
+    @GetMapping("/find")
+    public User findGreetById(@RequestParam long id) {
+        return greetingService.getById(id);
     }
 
 }
